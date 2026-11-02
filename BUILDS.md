@@ -42,7 +42,7 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 
 When requests conflict, Grok Bot sets the order and athletics deadlines come first.
 
-### um-autolog clip timeline (tracked as BLD-1 in PJ1229/um-autolog, PR #40)
+### BLD-5: um-autolog clip timeline (PJ1229/um-autolog, PR #40)
 - Current direction (Nov 2, 2026): very early stage; soccer only, since most clips are soccer.
 - Near-term priority: detection showreel with a person box around every detected player, the jersey number above each box, and a ball marker. No proposed names, no crowd detection.
 - Deferred: other sports and crowd/fan detection.
