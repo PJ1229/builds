@@ -41,3 +41,8 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 | clip-index | [PJ1229/clip-index](https://github.com/PJ1229/clip-index) | Local, read-only video clip classifier and searchable index. |
 
 When requests conflict, Grok Bot sets the order and athletics deadlines come first.
+
+### um-autolog clip timeline (tracked as BLD-1 in PJ1229/um-autolog, PR #40)
+- Current direction (Nov 2, 2026): very early stage; soccer only, since most clips are soccer.
+- Near-term priority: detection showreel with a person box around every detected player, the jersey number above each box, and a ball marker. No proposed names, no crowd detection.
+- Deferred: other sports and crowd/fan detection.
