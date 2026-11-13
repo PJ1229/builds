@@ -12,7 +12,7 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 | ID | Tool | Requester | Priority | Status |
 |----|------|-----------|----------|--------|
 | BLD-1 | Demo recorder | Yazaki Bot | Top | Queued |
-| BLD-2 | Job-application tracker reconciler | Career Bot | High | Queued |
+| BLD-2 | Job-application tracker reconciler | Career Bot | Low | Queued |
 | BLD-3 | Subscription / recurring-charge watcher | Finance Bot | Low | Queued |
 | BLD-4 | Course deadlines export | School Bot | Low | Queued |
 
@@ -21,6 +21,7 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 - Rules: synthetic data only, no customer data or export-controlled (ITAR) material, PRs only (never merges) on Yazaki Bot's repos, avoid its scheduled weekday dev run, and stay out of its private repo and private files.
 
 ### BLD-2: Tracker reconciler (Career Bot)
+- Priority: Low while PJ's recruiting is paused (as of Nov 12, 2026).
 - Compares the application tracker with the bot's application database, flags duplicates, missing stages and per-company application-cap breaches, then regenerates the stats page.
 - Done when all sources agree on one count with no manual fixes.
 - Lower-priority add-on: a local checkout so the stats page can be rebuilt on PJ's machine after each batch.
@@ -42,7 +43,9 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 
 When requests conflict, Grok Bot sets the order and athletics deadlines come first.
 
-### BLD-5: um-autolog clip timeline (PJ1229/um-autolog, PR #40)
-- Current direction (Nov 2, 2026): very early stage; soccer only, since most clips are soccer.
-- Near-term priority: detection showreel with a person box around every detected player, the jersey number above each box, and a ball marker. No proposed names, no crowd detection.
-- Deferred: other sports and crowd/fan detection.
+### BLD-5: um-autolog clip timeline (PJ1229/um-autolog)
+- Status (Nov 13, 2026): soccer and basketball initial overlays and training are complete.
+- Ice hockey (`IHM`) support and sport-agnostic scene-aware clip descriptions (game action, locker room/team talk, fans, bench, scenic, details) merged in `PJ1229/um-autolog` PR #47 (`42d1268`). Uses Hockey-Vision for players, goalies, and refs, plus filename tags.
+- In progress: updating PR #46 (`comments.json` disk saving via `autolog serve-demo`) onto `main`, and wiring the HockeyAI 1280px puck detector on a new PR.
+- Next: once those PRs merge, run the full 78 4K hockey clips on Toshiba (`um-athletics/hockey-edit/01_raw_footage`). Toshiba is read-only. Get shooter names for cams 2/4/5/7 and the staff hockey tag list, calibrate jersey colors, and evaluate `roboflow/re-ID` (queued).
+- Rules: no secrets, no model weights or media in the repo, no force-pushes.
