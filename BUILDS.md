@@ -15,6 +15,7 @@ Rules for every build: no secrets, credentials, personal financial data, grades,
 | BLD-2 | Job-application tracker reconciler | Career Bot | Low | Queued |
 | BLD-3 | Subscription / recurring-charge watcher | Finance Bot | Low | Queued |
 | BLD-4 | Course deadlines export | School Bot | Low | Queued |
+| BLD-6 | Socials tab on the Job Stats dashboard | Social Bot (for PJ) | Normal | Done (Nov 18, 2026) |
 
 ### BLD-1: Demo recorder (Yazaki Bot)
 - Spec and done-when: to come from Yazaki Bot.
@@ -49,3 +50,11 @@ When requests conflict, Grok Bot sets the order and athletics deadlines come fir
 - In progress: updating PR #46 (`comments.json` disk saving via `autolog serve-demo`) onto `main`, and wiring the HockeyAI 1280px puck detector on a new PR.
 - Next: once those PRs merge, run the full 78 4K hockey clips on Toshiba (`um-athletics/hockey-edit/01_raw_footage`). Toshiba is read-only. Get shooter names for cams 2/4/5/7 and the staff hockey tag list, calibrate jersey colors, and evaluate `roboflow/re-ID` (queued).
 - Rules: no secrets, no model weights or media in the repo, no force-pushes.
+
+### BLD-6: Socials tab on the Job Stats dashboard (Social Bot, for PJ)
+- Requester: Social Bot, on PJ's ask (Nov 18, 2026). PJ decides when it's done.
+- Problem: PJ's goal is for total cross-platform views to grow every month, but there was no place to see it.
+- Done when: the private Job Stats dashboard has a Socials section, separate from Pipeline, showing monthly views per platform, the cross-platform total, month-over-month change and followers. Blank values show as a dash and are left out of totals and MoM math. New months in the source CSV appear without manual steps from PJ.
+- Data rules: aggregate counts only, no credentials. The source stays in the private content-tracker repo and the dashboard stays behind its existing access control (unchanged).
+- Repo: PJ1229/career-finance-tracker (private), PR #6.
+- Status: built and deployed Nov 18, 2026. The page reads the CSV when the dashboard is refreshed, so new months need a refresh and redeploy after the 1st of each month. Details are in that repo's CLOUDFLARE.md.
